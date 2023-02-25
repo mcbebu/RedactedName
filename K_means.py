@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.axes as axe
 import csv
 import os
+from mapgenerator import generate_map
 
 def k_means_constrained(file_path, min_orders, max_orders, num_drivers):
 
@@ -54,10 +55,13 @@ def draw_proximity_plot(data, cluster_centers, labels) :
 
     print(t5)
 
+    centrepoint = data.mean(axis = 0)
+    generate_map(centrepoint,t3)
+
     np.random.seed(12334232)
     colors = np.random.rand(num_drivers)
 
-    centrepoint = data.mean(axis = 0)
+    
     plt.scatter(data[:, 0], data [:, 1], c = labels, marker = 'v') 
     plt.scatter(cluster_centers[:, 0], cluster_centers[:, 1], s = t5[:, 1].astype(float) * 1020000, c = colors, alpha = 0.5, label='cluster centers')
     plt.savefig("C:/Users/jweey/OneDrive/Desktop/NUS Extra/Ninja_van_hackathon/images/Proximity_Plot.png", transparent= True)
