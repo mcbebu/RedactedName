@@ -33,9 +33,13 @@ def k_means_constrained(file_path, min_orders, max_orders, num_drivers):
     return np_array, propogator.cluster_centers_ ,propogator.labels_
 
 
+def return_path(image_path) :
+    dirname = os.path.abspath("")
+    image_path = os.path.join(dirname, image_path)
+    return image_path
 
 
-def draw_proximity_plot(data, cluster_centers, labels) :
+def draw_proximity_plot(data, cluster_centers, labels, num_drivers) :
 
     t1 = cluster_centers[labels]
     print(t1)
@@ -52,21 +56,16 @@ def draw_proximity_plot(data, cluster_centers, labels) :
         t5[x] = np.max(np.sqrt(np.sum(np.power(fil[:, :2] - fil[:, 2:], 2), axis = 1)), axis = 0)
 
 
-    print(t5)
 
     np.random.seed(12334232)
     colors = np.random.rand(num_drivers)
 
     centrepoint = data.mean(axis = 0)
+
     plt.scatter(data[:, 0], data [:, 1], c = labels, marker = 'v') 
     plt.scatter(cluster_centers[:, 0], cluster_centers[:, 1], s = t5[:, 1].astype(float) * 1020000, c = colors, alpha = 0.5, label='cluster centers')
-    plt.savefig("C:/Users/jweey/OneDrive/Desktop/NUS Extra/Ninja_van_hackathon/images/Proximity_Plot.png", transparent= True)
-
+    plt.savefig(return_path("images\Proximity_Plot.png"), transparent= True)
     plt.show()
 
-file_path1 = "C:/Users/jweey/Downloads/latlong_1_station.csv"
-file_path2 = "C:/Users/jweey/Downloads/Book2.csv"
-num_drivers = 5
-data, cluster_centers, labels = k_means_constrained(file_path1, 3, 5, num_drivers) 
-draw_proximity_plot(data, cluster_centers, labels)
+
 
