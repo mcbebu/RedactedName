@@ -60,6 +60,7 @@ def draw_proximity_plot(data, cluster_centers, labels, num_drivers) :
 
     centrepoint = data.mean(axis = 0)
     generate_map(centrepoint,t3)
+    #print(centrepoint)
 
     np.random.seed(12334232)
     colors = np.random.rand(num_drivers)
