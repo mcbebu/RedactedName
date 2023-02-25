@@ -1,7 +1,7 @@
 import googlemaps # pip install googlemaps
 import csv
 
-API_KEY = "AIzaSyA5vF812q_CAOD6UvQwH5zPC9-VkXdFtTU"
+API_KEY = "API HIDDEN"
 
 client = googlemaps.Client(API_KEY)
 
