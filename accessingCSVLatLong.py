@@ -3,7 +3,7 @@ import csv
 import math
 from convertLatLong import findLatLong
 
-datafile = pd.read_csv("customer_addresses_id.csv", usecols=['to_address1', 'to_address2'], nrows = 200)
+datafile = pd.read_csv("customer_addresses_id.csv", usecols=['to_address1', 'to_address2'], nrows = 8)
 # for testing, will only use 3 random values in the list to run the google api to avoid
 # exceeding limit
 limited_dataset = pd.read_csv("customer_addresses_id.csv", usecols=['to_address1','to_address2'], nrows=3)
@@ -27,7 +27,7 @@ with open('latlong.csv', 'w', newline='') as file:
     writer = csv.writer(file)
 
     for item in list_of_lat_long:
-        if (item == "NULL"):
+        if (item == None):
             writer.writerow([item])
         else:
             writer.writerow(item)

@@ -1,7 +1,7 @@
 import googlemaps # pip install googlemaps
 import csv
 
-API_KEY = "API HAS BEEN HIDDEN"
+API_KEY = "AIzaSyA5vF812q_CAOD6UvQwH5zPC9-VkXdFtTU"
 
 client = googlemaps.Client(API_KEY)
 
@@ -15,5 +15,5 @@ def findLatLong(full_location):
         with open('failedlatlong.csv', 'a', newline='') as file:
             writer = csv.writer(file) 
             writer.writerow([full_location])
-        return ("NULL")
+        return (None)
     
