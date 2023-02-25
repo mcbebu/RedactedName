@@ -29,6 +29,12 @@ public class Node {
         return hashMap.containsKey(node);
     }
 
+    @Override
+    public boolean equals( Object o) {
+        Node n = (Node) o;
+        return this.longitude == n.longitude && this.latitude == n.latitude;
+    }
+
 
 
 }
