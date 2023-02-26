@@ -20,7 +20,7 @@ def k_means_constrained(file_path, min_orders, max_orders, num_drivers):
             if row[0] and row[1] :
                 data.append([float(num) for num in row])
             
-        updated_data = np.asarray(data)
+        updated_data = np.asarray(data)[:, [1, 0]]
 
     propogator = KMeansConstrained (
         n_clusters = num_drivers,
@@ -59,8 +59,12 @@ def draw_proximity_plot(data, cluster_centers, labels, num_drivers) :
     np.random.seed(12334232)
     colors = np.random.rand(num_drivers)
 
-    plt.scatter(data[:, 0], data [:, 1], c = labels, marker = 'v') 
-    plt.scatter(cluster_centers[:, 0], cluster_centers[:, 1], s = t5[:, 1].astype(float) * 1020000, c = colors, alpha = 0.5, label='cluster centers')
+    x = data[:, 0]
+    y = data[:, 1]
+
+    plt.scatter(x, y, c = labels, marker = 'v') 
+    plt.scatter(cluster_centers[:, 0], cluster_centers[:, 1], s = t5[:, 1].astype(float) * 1600000, c = colors, alpha = 0.5, label='cluster centers')
+    ###plt.axis([max(x), min(x), max(y), min(y)])
     plt.savefig(return_path("images\Proximity_Plot.png"), transparent= True)
     plt.show()
 
