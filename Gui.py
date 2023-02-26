@@ -5,9 +5,8 @@ from K_means import create_proximity_map
 def run() :
     def make_first_layout():
         layout1 = [
-            [sg.Text("Parcel Density", size = (60, 1), justification="center", font = "sans-serif, 25")],
-            [sg.Text("Choose a csv file to upload", justification="center")],
-            [sg.FileBrowse(key = "-BROWSER-")],
+            [sg.Text("Parcel Density", size = (20, 1), justification="left", font = "sans-serif, 40")],
+            [sg.Text("Choose a csv file to upload", justification="left")], [sg.FileBrowse(key = "-BROWSER-")],
             [sg.Text("Minimum orders:")],
             [sg.Input(key = "-MIN_ORDERS-")],
             [sg.Text("Maximum orders:")],
@@ -20,7 +19,7 @@ def run() :
 
     def make_second_layout():
         layout2 =  [
-            [sg.Text("Parcel Density", size = (60, 1), justification="center")],
+            [sg.Text("Parcel Density", size = (20, 1), justification="left", font = "sans-serif, 40")],
             [sg.Image("googlemaps.png", size = (500, 500))],
             [sg.Button("Back to Browse", key = "-REVERT-")]
         ]
